@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransX Driver Dashboard</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #121212;
+      color: #eaeaea;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #000, #222);
+      color: #ffcc00;
+      text-align: center;
+      padding: 25px 10px;
+      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    /* Dashboard Container */
+    .dashboard {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+    }
+
+    .card h3 {
+      color: #ffcc00;
+      font-size: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background-color: #2a2a2a;
+      color: #fff;
+      margin-top: 5px;
+    }
+
+    .gender-options {
+      margin-top: 10px;
+    }
+
+    .gender-options label {
+      margin-right: 15px;
+      cursor: pointer;
+    }
+
+    .verify-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .verify-btn:hover {
+      background-color: #e6b800;
+      transform: scale(1.05);
+    }
+
+    .status {
+      background-color: #444;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #ffcc00;
+    }
+
+    footer {
+      background-color: #000;
+      color: #ffcc00;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 10px rgba(255, 204, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🚘 TransX Driver Dashboard</h1>
+    <p>Manage Your Driver Profile and Vehicle Details</p>
+  </header>
+
+  <div class="dashboard">
+    <!-- Driver Info -->
+    <div class="card">
+      <h3>👤 Driver Information</h3>
+      <label for="driverName">Driver Name:</label>
+      <input type="text" id="driverName" placeholder="Enter Driver Name">
+
+      <label for="driverGender" style="margin-top: 10px;">Gender:</label>
+      <div class="gender-options">
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="other">
+        <label for="other">Other</label>
+      </div>
+    </div>
+
+    <!-- Vehicle Details -->
+    <div class="card">
+      <h3>🚗 Vehicle Details</h3>
+      <label for="carDetails">Car Details:</label>
+      <input type="text" id="carDetails" placeholder="e.g., Swift Dzire - MH12AB1234">
+
+      <label for="carType" style="margin-top: 10px;">Car Type:</label>
+      <select id="carType">
+        <option value="">--Select Car Type--</option>
+        <option value="Mini">Ola Mini</option>
+        <option value="Prime">Ola Prime</option>
+        <option value="Auto">Ola Auto</option>
+        <option value="Bike">Ola Bike</option>
+        <option value="Electric">Ola Electric</option>
+      </select>
+
+      <button class="verify-btn" onclick="verifyCar()">✅ Verify Car Details</button>
+      <div class="status" id="verifyStatus">Car Not Verified</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 TransX | Driver Dashboard</p>
+  </footer>
+
+  <script>
+    function verifyCar() {
+      const status = document.getElementById("verifyStatus");
+      status.innerText = "✅ Driver & Car Verified Successfully!";
+      status.style.backgroundColor = "#4CAF50";
+      status.style.color = "#fff";
+      status.style.transition = "all 0.3s ease";
+    }
+  </script>
+</body>
+</html>
